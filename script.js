@@ -15,7 +15,7 @@ const char = document.getElementById('char'),
 
 const bgm = new Audio("music.mp3");
 bgm.loop = true;
-bgm.volume = 0.3; // 0 ~ 1 사이 (음량 조절)
+bgm.volume = 0.1; // 0 ~ 1 사이 (음량 조절)
 
 
 
@@ -50,7 +50,7 @@ start.addEventListener('click', function () {
 
     setTimeout(() => {
         char.style.backgroundImage = 'url(imgs/front.png)';
-    }, 2000);
+    }, 1500);
 
     wg1.classList.add('close-modal');
     bg1.classList.add('close-bg');
@@ -318,6 +318,7 @@ start.addEventListener('click', function () {
             bgRe.style.display = 'block';
             bg2.classList.remove('close-bg');
             wg2.classList.add('show-modal');
+            bgm.pause();
             if (scoreUpdate <= 200) {
                 gameOverImage.src = "imgs/front.png";
                 gameOverImage.style.width = "250px"
@@ -367,7 +368,7 @@ start.addEventListener('click', function () {
                 char.style.backgroundImage = 'url("imgs/front.png")';
             }
         });
-    }, 2000);
+    }, 1500);
 
 
 
