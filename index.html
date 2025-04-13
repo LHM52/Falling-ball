@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공 떨구기</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="bg-black1">
+        <div class="bg-white1">
+            <div class="img-container">
+                <div class="img-box1">
+                    <img src="imgs/Dance.gif" alt="">
+                </div>
+            </div>
+            <div class="text">
+                <p>조교님이 200점을 달성해서 퇴근하실 수 있도록 도와주세요.<br>
+                    좌우방향키로 이동하여 빈 구멍으로 떨어져 빠져나가세요.<br>
+                    천장에 박히면 게임오버 됩니다.</p>
+            </div>
+            <button id="btn-start">게임시작</button>
+        </div>
+    </div>
+    <div class="bg-black2">
+        <div class="bg-white2">
+            <div class="img-container">
+                <div class="img-box2">
+                    <img src="imgs/Dance.gif" alt="" id="game-over-img">
+                </div>
+            </div>
+            <div class="text">
+                <p id="gameover-score"></p>
+                <hr>
+                <p id="gameover-meassge"></p>
+            </div>
+            <button id="btn-restart">다시하기</button>
+        </div>
+    </div>
+
+    <div id="score">점수 : 0</div>
+    <div id="game-container">
+        <div id="game-over"></div>
+        <!-- <img src="imgs/bg.png" alt=""> -->
+        <div id="char"></div>
+        <!-- <div id="platform-wall">
+            <div id="platform1"></div>
+            <div id="score-block"></div>
+            <div id="platform2"></div>
+        </div> -->
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
