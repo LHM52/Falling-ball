@@ -13,6 +13,11 @@ const char = document.getElementById('char'),
     gameOverMessage = document.getElementById('gameover-meassge'),
     gameOverImageBox = document.querySelector('.img-box2');
 
+const bgm = new Audio("music.mp3");
+bgm.loop = true;
+bgm.volume = 0.3; // 0 ~ 1 사이 (음량 조절)
+
+
 
 
 let scoreUpdate = 0,
@@ -32,10 +37,21 @@ let wallArr = [];
 
 bg2.classList.add('close-bg');
 
+
+
+
+
 start.addEventListener('click', function () {
 
     start.remove();
-    char.style.backgroundImage = 'url(imgs/front.png)';
+    
+    bgm.play();
+    char.style.backgroundImage = 'url("imgs/start.gif")';
+
+    setTimeout(() => {
+        char.style.backgroundImage = 'url(imgs/front.png)';
+    }, 2000);
+
     wg1.classList.add('close-modal');
     bg1.classList.add('close-bg');
 
@@ -323,33 +339,37 @@ start.addEventListener('click', function () {
 
 
     // 키 입력 처리
-    document.addEventListener("keydown", function (e) {
-        if (e.code === "ArrowLeft") {
-            isMoveLeft = true;
-            char.style.backgroundImage = 'url("imgs/running.gif")';
-            char.style.transform = "scaleX(1)"; // 왼쪽 보기
-        } else if (e.code === "ArrowRight") {
-            isMoveRight = true;
-            char.style.backgroundImage = 'url("imgs/running.gif")';
-            char.style.transform = "scaleX(-1)"; // 오른쪽 보기
-        }
-    });
+    setTimeout(() => {
+        document.addEventListener("keydown", function (e) {
+            if (e.code === "ArrowLeft") {
+                isMoveLeft = true;
+                char.style.backgroundImage = 'url("imgs/running.gif")';
+                char.style.transform = "scaleX(1)"; // 왼쪽 보기
+            } else if (e.code === "ArrowRight") {
+                isMoveRight = true;
+                char.style.backgroundImage = 'url("imgs/running.gif")';
+                char.style.transform = "scaleX(-1)"; // 오른쪽 보기
+            }
+        });
 
 
-    document.addEventListener("keyup", function (e) {
-        if (e.code === "ArrowLeft") {
-            isMoveLeft = false;
-        } else if (e.code === "ArrowRight") {
-            isMoveRight = false;
-        }
+        document.addEventListener("keyup", function (e) {
+            if (e.code === "ArrowLeft") {
+                isMoveLeft = false;
+            } else if (e.code === "ArrowRight") {
+                isMoveRight = false;
+            }
 
-        // 양쪽 다 멈췄으면 기본 자세로
-        if (!isMoveLeft && !isMoveRight) {
-            // clearInterval(walkInterval);
-            // walkInterval = null;
-            char.style.backgroundImage = 'url("imgs/front.png")';
-        }
-    });
+            // 양쪽 다 멈췄으면 기본 자세로
+            if (!isMoveLeft && !isMoveRight) {
+                // clearInterval(walkInterval);
+                // walkInterval = null;
+                char.style.backgroundImage = 'url("imgs/front.png")';
+            }
+        });
+    }, 2000);
+
+
 
 
     bgRe.addEventListener('click', function () {
