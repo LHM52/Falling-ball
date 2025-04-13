@@ -11,11 +11,12 @@ const char = document.getElementById('char'),
     gameOverImage = document.getElementById('game-over-img'),
     gameOverScore = document.getElementById('gameover-score'),
     gameOverMessage = document.getElementById('gameover-meassge'),
-    gameOverImageBox = document.querySelector('.img-box2');
+    gameOverImageBox = document.querySelector('.img-box2'),
+    gameOverFirstImg = document.querySelector('.img-box2 img:first-child');
 
 const bgm = new Audio("music.mp3");
 bgm.loop = true;
-bgm.volume = 0.1; // 0 ~ 1 사이 (음량 조절)
+bgm.volume = 0.02; // 0 ~ 1 사이 (음량 조절)
 
 
 
@@ -44,7 +45,7 @@ bg2.classList.add('close-bg');
 start.addEventListener('click', function () {
 
     start.remove();
-    
+
     bgm.play();
     char.style.backgroundImage = 'url("imgs/start.gif")';
 
@@ -77,8 +78,7 @@ start.addEventListener('click', function () {
 
 
 
-        // Difficulty();
-
+        Difficulty();
         fallAndPhysics();
         charMove();
         gameOver(char, gameOverBlock);
@@ -243,36 +243,9 @@ start.addEventListener('click', function () {
 
 
     function Difficulty() {
-        if (scoreUpdate === 10) {
-            lvlGameSpeed = 2;
-        }
-        else if (scoreUpdate === 15) {
-            lvlGameSpeed = 3;
-        }
-        else if (scoreUpdate === 20) {
-            lvlGameSpeed = 3.5;
-        }
-        else if (scoreUpdate === 25) {
-            lvlSpeedFrame = 240;
-            lvlGameSpeed = 4;
-        }
-        else if (scoreUpdate === 30) {
-            lvlGameSpeed = 4.5;
-        }
-        else if (scoreUpdate === 40) {
-            lvlSpeedFrame = 200;
-            lvlGameSpeed = 5;
-        }
-        else if (scoreUpdate === 50) {
-            lvlGameSpeed = 5.5;
-        }
-        else if (scoreUpdate === 60) {
-            lvlSpeedFrame = 180;
-            lvlGameSpeed = 5.5;
-        }
-        else if (scoreUpdate === 70) {
-            lvlSpeedFrame = 140;
-            lvlGameSpeed = 6;
+        if (scoreUpdate >= 100) {
+            lvlGameSpeed = 1.5;
+            lvlSpeedFrame = 75;
         }
 
     }
@@ -320,17 +293,19 @@ start.addEventListener('click', function () {
             wg2.classList.add('show-modal');
             bgm.pause();
             if (scoreUpdate <= 200) {
-                gameOverImage.src = "imgs/front.png";
+                gameOverImage.src = "imgs/gameover.png";
                 gameOverImage.style.width = "250px"
-                gameOverImage.style.height = "50px"
+                gameOverImage.style.height = "75px"
                 gameOverScore.textContent = `점수 : ${scoreUpdate}`;
                 gameOverMessage.textContent = "하.. 야근 ㅠㅠㅠ";
                 gameOverImageBox.style.bottom = "200px";
+                gameOverImageBox.style.animation = 'over 0.1s steps(1) infinite alternate';
             }
             else if (scoreUpdate >= 200) {
                 gameOverImage.src = "imgs/Dance.gif";
                 gameOverScore.textContent = `점수 : ${scoreUpdate}`;
                 gameOverMessage.textContent = "200점이닭!! 오늘은 칼퇴닷!!!";
+                gameOverFirstImg.remove();
             }
 
         }

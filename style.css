@@ -42,6 +42,7 @@
     width: 30%;
     height: 100%;
     image-rendering: pixelated;
+
 }
 .img-box1 {
     position: absolute;
@@ -62,10 +63,10 @@
 }
 
 .img-box2 img {
-    width: 150px;
+    width: 100px;
     position: absolute;
-    top: 20%;
 }
+
 .text {
     width: 60%;
     height: 350px;
@@ -102,10 +103,28 @@
     position: absolute;
     image-rendering: pixelated;
     background-repeat: no-repeat;
-    overflow: hidden;
+}
+.game-over-mark {
+    width: 50px;
+    position: absolute;
+    top: -75px;
+    left: 150px;
+    z-index: 2;
+    image-rendering: pixelated;
+    background-repeat: no-repeat;
 }
 
-
+@keyframes over {
+    0% {
+        transform: translateX(2px); /* 오른쪽으로 이동 */
+    }
+    50% {
+        transform: translateX(-2px); /* 왼쪽으로 이동 */
+    }
+    100% {
+        transform: translateX(2px); /* 오른쪽으로 다시 이동 */
+    }
+}
 #btn-start {
     display: block;
     width: 100%;
