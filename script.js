@@ -244,8 +244,8 @@ start.addEventListener('click', function () {
 
     function Difficulty() {
         if (scoreUpdate >= 100) {
-            lvlGameSpeed = 1.5;
-            lvlSpeedFrame = 75;
+            lvlGameSpeed = 1.3;
+            lvlSpeedFrame = 100;
         }
 
     }
