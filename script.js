@@ -77,7 +77,6 @@ start.addEventListener('click', function () {
         });
 
 
-
         Difficulty();
         fallAndPhysics();
         charMove();
@@ -184,7 +183,6 @@ start.addEventListener('click', function () {
                     y = Platform.newPlatform1.getBoundingClientRect().top - char.offsetHeight + -5; // 플랫폼 바로 위로 조정 (오차 보정)
                     velocity = 0; // 충돌 시 낙하 속도 초기화
                 }
-
             }
 
         });
@@ -216,7 +214,7 @@ start.addEventListener('click', function () {
 
 
 
-    function charMove(Platform) {
+    function charMove() {
 
         // 좌우 이동
 
@@ -244,10 +242,10 @@ start.addEventListener('click', function () {
 
     function Difficulty() {
         if (scoreUpdate >= 100) {
-            setTimeout(() => {
-                lvlGameSpeed = 1.25;
-                lvlSpeedFrame = 115;
-            }, 1000);
+            lvlGameSpeed = 1.35;
+        }
+        else if (scoreUpdate >= 150) {
+            lvlGameSpeed = 1.45;
         }
 
     }
