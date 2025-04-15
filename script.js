@@ -247,6 +247,9 @@ start.addEventListener('click', function () {
         else if (scoreUpdate >= 150) {
             lvlGameSpeed = 1.45;
         }
+        else if (scoreUpdate >= 200) {
+            lvlGameSpeed = 1.55;
+        }
 
     }
     function checkCollision(rect1, rect2) {
